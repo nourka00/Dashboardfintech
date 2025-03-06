@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Sidebar Navigation */
+.navbar {
+  width: 300px; /* Adjusted width to match active/hover width */
+  height: 100vh; /* Full height */
+  background-color: #3157A4;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Push user profile to the bottom */
+  padding: 5px 0;
+  padding-left: 30px;
+}
+
+/* Header */
+.navbar h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight:bolder; /* Black weight */
+  font-size: 32px; /* Adjusted size */
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Sidebar Links */
+.sidebar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+   font-family: "Poppins", sans-serif;
+   font-size:  20px;
+   font-weight:600;
+   
+}
+
+.sidebar a{
+  display: block;
+  width: 100%; /* Make links fill navbar width */
+  color: white;
+  padding: 12px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 15px 0 0 15px;
+  transition: 0.3s;
+  
+}
+.sidebar a.active,
+.sidebar a:hover {
+  background-color: white;
+  color: black;
+}
+
+/* User Profile Section */
+.user-profile {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  width: 100%;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  padding: 10PX;
+  margin-bottom: 10px;
+}
+
+.user-profile img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 10px;
+  
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+.user-info .user{
+ font-family: "Poppins", sans-serif;
+ font-weight:400;
+ font-size:20px;
+}
+.user-info p {
+  margin: 2px 0;
+  font-size: medium;
+  font-weight:500;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 700px) {
+  .navbar {
+    width: 160px; /* Make sidebar smaller */
+  }
+
+  .sidebar a {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .user-profile {
+    padding: 10px;
+  }
+
+  .user-profile img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .user-info p {
+    font-size: 11px;
+  }
+}
