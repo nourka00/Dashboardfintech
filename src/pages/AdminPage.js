@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Sidebar from "../components/Navbar";
 import AdminCard from "../components/AdminCard";
-import "../CSS/AdminPage.css";
+import "../CSS/adminPage.css";
 
 const AdminPage = () => {
   const [admins, setAdmins] = useState([
