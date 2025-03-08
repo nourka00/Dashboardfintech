@@ -43,8 +43,10 @@ function Navbar() {
 
       <div className="user-profile">
         <img src={userImage} alt="User Profile" />
-        <p>User</p>
-        <p>user@email.com</p>
+        <div className="userinfo">
+        <p className="user">User</p>
+          <p>user@email.com</p>
+        </div>
       </div>
     </div>
   );
