@@ -1,0 +1,163 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+  }
+  
+  .container {
+    display: flex;
+  }
+  
+  /* Sidebar Styles */
+  /* .sidebar {
+    width: 250px;
+    background-color: #3157A4;
+    color: white;
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .sidebar h2 {
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  .sidebar li {
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .sidebar li:hover,
+  .sidebar .active {
+    background-color: white;
+    color: #2c3e50;
+    font-weight: bold;
+  } */
+  
+  /* User Section */
+  .user-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .user-circle {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+  }
+  
+  .user-info p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  /* Content Section */
+  .content {
+    flex: 1;
+    padding: 40px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  /* Page Title */
+  .page-title {
+    color: #3157A4;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Admin List */
+  .admin-list {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    margin-bottom: 20px;
+  }
+  
+  /* Admin Card */
+  .admin-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .admin-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .admin-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .admin-name {
+    font-weight: bold;
+  }
+  
+  .admin-email {
+    color: gray;
+  }
+  
+  .delete-btn {
+    background: none;
+    border: none;
+    color: red;
+    font-weight: bold
+  }
+  
+  /* Add Admin Form */
+  .add-admin {
+    width: 60%;
+    margin-top: 0;
+    text-align: center;
+  }
+  
+  .add-admin h3 {
+    text-align: left;
+  }
+  
+  .add-admin input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .add-admin button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #2c3e50;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+  }
