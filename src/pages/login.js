@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "../CSS/login.css"; // Keep the existing styles
+import "../CSS/login.css";
 
 function Login({ setUser }) {
   const [isSignIn, setIsSignIn] = useState(false); // Toggle between Sign In and Login
   const [details, setDetails] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
   });
@@ -27,7 +27,7 @@ function Login({ setUser }) {
         const { data } = await axios.post(
           "http://localhost:5000/api/auth/register",
           {
-            name: details.name,
+            username: details.username,
             email: details.email,
             password: details.password,
           }
@@ -66,12 +66,12 @@ function Login({ setUser }) {
         <form onSubmit={handleSubmit} className="form">
           {isSignIn && (
             <div>
-              <label htmlFor="name">Enter Your Name</label>
+              <label htmlFor="username">Enter Your Username</label>
               <input
                 type="text"
-                id="name"
-                name="name"
-                value={details.name}
+                id="username"
+                name="username"
+                value={details.username}
                 onChange={handleChange}
                 required
               />

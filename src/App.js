@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
-  Routes,
   Route,
+  Routes,
   Navigate,
 } from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
+import { jwtDecode } from "jwt-decode"; // Updated import
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import Income from "./pages/Income";
-import Expense from "./pages/Expense";
+import Incomes from "./pages/Income";
+import Expenses from "./pages/Expense";
 import Goals from "./pages/ProfitGoal";
 import Admin from "./pages/AdminPage";
-import Login from "./pages/login"; // Updated import for the adapted Login component
+import Login from "./pages/login";
 
 
 const App = () => {
@@ -23,8 +23,8 @@ const App = () => {
     const token = localStorage.getItem("token");
     if (token) {
       try {
-        const decoded = jwtDecode(token);
-        setUser({ token, role: decoded.role }); // Set user state
+        const decoded = jwtDecode(token); // Updated usage
+        setUser({ token, role: decoded.role });
       } catch (err) {
         console.error("Invalid token", err);
         localStorage.removeItem("token"); // Clear invalid token
@@ -40,17 +40,35 @@ const App = () => {
 
   return (
     <Router>
-      <div>
-        <Navbar />
-        <div style={{ marginLeft: "392px", padding: "20px" }}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/incomes" element={<Incomes />} />
-            <Route path="/expenses" element={<Expenses />} />
-            <Route path="/goals" element={<Goals />} />
-            <Route path="/admin" element={<Admin />} />
-          </Routes>
-        </div>
+      <Navbar user={user} onLogout={logout} />
+      <div style={{ marginLeft: "392px", padding: "20px" }}>
+        <Routes>
+          <Route
+            path="/login"
+            element={user ? <Navigate to="/" /> : <Login setUser={setUser} />}
+          />
+          <Route
+            path="/"
+            element={user ? <Home /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/incomes"
+            element={user ? <Incomes /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/expenses"
+            element={user ? <Expenses /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/goals"
+            element={user ? <Goals /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/admin"
+            element={user?.role === "admin" ? <Admin /> : <Navigate to="/" />}
+          />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
       </div>
     </Router>
   );
