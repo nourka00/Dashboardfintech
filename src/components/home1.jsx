@@ -2,6 +2,7 @@
 import "../CSS/home.css";
 
 */
+import axios from 'axios';
 
 import wallet from "../assets/expenses.png"; 
 import head from "../assets/head.png";
