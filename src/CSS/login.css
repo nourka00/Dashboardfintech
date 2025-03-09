@@ -10,15 +10,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   background-color: #f4f4f4;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 100%;
   text-align: center;
@@ -27,7 +25,7 @@ body {
 
 .border {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   border: solid black 1px;
@@ -37,17 +35,21 @@ body {
   width: 100%;
   max-width: 400px; /* Keeps form size consistent */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 50px;
+  padding:1.5rem;
 }
 
 /* Header Style */
 h1 {
+  justify-content: center;
   font-family: 'Poppins', sans-serif;
   font-weight: 900; /* Black */
   font-size: 40px;
   color: #153F92;
   text-align: center;
-  margin-bottom: 20px;
+  margin-top: 30px;
+  margin-bottom: 1rem;
+  padding: 20px;
+  
 }
 
 .form {

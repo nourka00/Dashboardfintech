@@ -2,7 +2,8 @@ import React from "react";
 import userImage from "../assets/userprofile.png";
 import "../CSS/navbar.css";
 import { NavLink } from "react-router-dom";
-function Navbar() {
+
+function Navbar({ user, onLogout }) {
   return (
     <div className="navbar">
       <h3>
@@ -42,11 +43,21 @@ function Navbar() {
       </div>
 
       <div className="user-profile">
-        <img src={userImage} alt="User Profile" />
-        <div className="userinfo">
-        <p className="user">User</p>
-          <p>user@email.com</p>
+        <div className="imguser">
+          <img src={userImage} alt="User Profile" />
         </div>
+        <div className="userinfo">
+          <p className="user">{user ? "User" : "Guest"}</p>
+          <p>{user ? "user@email.com" : ""}</p>
+        </div>
+        
+        {user && (
+          <button className="logout-button" onClick={onLogout}>
+            Logout
+            </button>
+      
+          )}
+         
       </div>
     </div>
   );

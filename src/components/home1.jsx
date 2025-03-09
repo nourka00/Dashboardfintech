@@ -41,7 +41,7 @@ function FinanceDashboard() {
       <div className="grid-section">
         <div className="grid-item">
           <div className="icon">
-            {/* Replace with your icon */}
+          
             <img src={wallet} alt="Icon" />
           </div>
           <div className="text">

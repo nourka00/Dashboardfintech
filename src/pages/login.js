@@ -59,9 +59,10 @@ function Login({ setUser }) {
 
   return (
     <div className="container">
-      <h1>
+      <div><h1>
         Welcome to Your Own <br /> Personal Finance Tracker!
-      </h1>
+      </h1></div>
+      <div>
       <div className="border">
         <form onSubmit={handleSubmit} className="form">
           {isSignIn && (
@@ -107,6 +108,7 @@ function Login({ setUser }) {
               : "Don't have an account? Sign In"}
           </h6>
         </form>
+      </div>
       </div>
     </div>
   );

@@ -62,7 +62,9 @@ body {
 /* User Profile Section */
 .user-profile {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
   padding: 15px;
   width: 100%;
   color: white;
@@ -82,17 +84,42 @@ body {
 .user-info {
   display: flex;
   flex-direction: column;
+ 
 }
 .user-info .user{
+ display: flex;
  font-family: "Poppins", sans-serif;
  font-weight:500;
  font-size:25px;
+
 }
 .user-info p {
   margin: 2px 0;
   font-size:bold;
   font-weight:500;
   font-family: "Poppins", sans-serif;
+}
+
+/* Add this to your navbar.css */
+.logout-button {
+  display: flex;
+  flex-direction:column;
+  width: 100%;
+  padding: 10px;
+  background-color: #1c3d7d; /* Red background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #d7d7d7; /* Darker red on hover */
 }
 
 /* Responsive Design */
