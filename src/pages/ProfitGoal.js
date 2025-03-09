@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 // import Sidebar from '../components/Sidebar';
 import ProfitGoalForm from '../components/ProfitGoalForm';
 import ProfitGoalList from '../components/ProfitGoalList';
@@ -8,8 +8,16 @@ import '../CSS/ProfitGoal.css';
 const ProfitGoalsPage = () => {
   const [profitgoals, setProfitGoals] = useState([]);
 
+  // const addProfitGoal = (profitgoal) => {
+  //   setProfitGoals([...profitgoals, profitgoal]);
+  // };
+
+
+
   const addProfitGoal = (profitgoal) => {
-    setProfitGoals([...profitgoals, profitgoal]);
+    const updatedProfitGoals = [...profitgoals, profitgoal];
+    setProfitGoals(updatedProfitGoals);
+    localStorage.setItem('profitgoals', JSON.stringify(updatedProfitGoals));
   };
 
   const deleteProfitGoal = (index) => {
@@ -19,6 +27,15 @@ const ProfitGoalsPage = () => {
   const clearProfitGoals = () => {
     setProfitGoals([]);
   };
+
+
+
+  // Load saved expenses when component mounts
+   useEffect(() => {
+    const savedProfitGoals = JSON.parse(localStorage.getItem('profitgoals')) || [];
+    setProfitGoals(savedProfitGoals);
+   }, []);
+  
 
   return (
     <div className="container">

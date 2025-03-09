@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 // import Sidebar from '../components/Sidebar';
 import IncomeForm from '../components/IncomeForm';
 import IncomeList from '../components/IncomeList';
@@ -8,8 +8,15 @@ import '../CSS/Income.css';
 const IncomesPage = () => {
   const [incomes, setIncomes] = useState([]);
 
+  // const addIncome = (income) => {
+  //   setIncomes([...incomes, income]);
+  // };
+
+
   const addIncome = (income) => {
-    setIncomes([...incomes, income]);
+    const updatedIncomes = [...incomes, income];
+    setIncomes(updatedIncomes);
+    localStorage.setItem('incomes', JSON.stringify(updatedIncomes));
   };
 
   const deleteIncome = (index) => {
@@ -19,6 +26,12 @@ const IncomesPage = () => {
   const clearIncomes = () => {
     setIncomes([]);
   };
+
+  // Load saved expenses when component mounts
+   useEffect(() => {
+    const savedIncomes = JSON.parse(localStorage.getItem('incomes')) || [];
+    setIncomes(savedIncomes);
+   }, []);
 
   return (
     <div className="container">

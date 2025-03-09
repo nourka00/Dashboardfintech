@@ -2,11 +2,10 @@
 import "../CSS/home.css";
 
 */
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+
 import wallet from "../assets/expenses.png"; 
 import head from "../assets/head.png";
-
+import React, { useState, useEffect } from "react";
 import "../CSS/home.css"; // Create this CSS file
 
 function FinanceDashboard() {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 // import Sidebar from '../components/Sidebar';
 import ExpenseForm from '../components/ExpenseForm';
 import ExpenseList from '../components/ExpenseList';
@@ -11,6 +11,11 @@ const ExpensesPage = () => {
   const addExpense = (expense) => {
     setExpenses([...expenses, expense]);
   };
+  // const addExpense = (expense) => {
+  //   const updatedExpenses = [...expenses, expense];
+  //   setExpenses(updatedExpenses);
+  //   localStorage.setItem('expenses', JSON.stringify(updatedExpenses));
+  // };
 
   const deleteExpense = (index) => {
     setExpenses(expenses.filter((_, i) => i !== index));
@@ -19,6 +24,12 @@ const ExpensesPage = () => {
   const clearExpenses = () => {
     setExpenses([]);
   };
+
+  // Load saved expenses when component mounts
+ useEffect(() => {
+  const savedExpenses = JSON.parse(localStorage.getItem('expenses')) || [];
+  setExpenses(savedExpenses);
+ }, []);
 
   return (
     <div className="container">
@@ -33,3 +44,5 @@ const ExpensesPage = () => {
 };
 
 export default ExpensesPage;
+
+
