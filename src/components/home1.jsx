@@ -2,12 +2,40 @@
 import "../CSS/home.css";
 
 */
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import wallet from "../assets/expenses.png"; 
-import head from "../assets/head.png"
-import React from "react";
+import head from "../assets/head.png";
+
 import "../CSS/home.css"; // Create this CSS file
 
 function FinanceDashboard() {
+  
+  const [totals, setTotals] = useState({
+    totalIncome: 0,
+    totalExpense: 0,
+    profit: 0,
+  });
+
+  useEffect(() => {
+    const fetchTotals = async () => {
+      try {
+        const incomeRes = await axios.get("/api/incomes/total");
+        const expenseRes = await axios.get("/api/expenses/total");
+        const profitRes = await axios.get("/api/profit");
+        setTotals({
+          totalIncome: incomeRes.data.totalIncome,
+          totalExpense: expenseRes.data.totalExpense,
+          profit: profitRes.data.profit,
+        });
+      } catch (error) {
+        console.error("Error fetching totals", error);
+      }
+    };
+
+    fetchTotals();
+  }, []);
+
   return (
     <div className="dashboard-container">
       <div className="header-section">
@@ -46,7 +74,7 @@ function FinanceDashboard() {
           </div>
           <div className="text">
             <h3>Total Incomes</h3>
-            <p>XXXXX$</p>
+            <p>{totals.totalIncome}$</p>
           </div>
         </div>
         <div className="grid-item">
@@ -55,7 +83,7 @@ function FinanceDashboard() {
           </div>
           <div className="text">
             <h3>Total Expenses</h3>
-            <p>XXXXX$</p>
+            <p>{totals.totalExpense}$</p>
           </div>
         </div>
         <div className="grid-item">
@@ -64,7 +92,7 @@ function FinanceDashboard() {
           </div>
           <div className="text">
             <h3>Profit Margin</h3>
-            <p>XXXXX$</p>
+            <p>{totals.profit}</p>
           </div>
         </div>
         <div className="grid-item">
@@ -73,7 +101,7 @@ function FinanceDashboard() {
           </div>
           <div className="text">
             <h3>Budget Breakdown</h3>
-            <p>XXXXX$</p>
+            <p>{totals.profit - totals.totalExpense}$</p>
           </div>
         </div>
       </div>
