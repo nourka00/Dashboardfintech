@@ -92,7 +92,7 @@ function FinanceDashboard() {
           </div>
           <div className="text">
             <h3>Profit Margin</h3>
-            <p>{totals.profit}</p>
+            <p>{totals.profit} $</p>
           </div>
         </div>
         <div className="grid-item">
@@ -101,7 +101,7 @@ function FinanceDashboard() {
           </div>
           <div className="text">
             <h3>Budget Breakdown</h3>
-            <p>{totals.profit - totals.totalExpense}$</p>
+            <p>{totals.profit}$</p>
           </div>
         </div>
       </div>
